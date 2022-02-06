@@ -1,0 +1,4 @@
+*.cmake
+.vscode-server
+.vscode
+/build/
