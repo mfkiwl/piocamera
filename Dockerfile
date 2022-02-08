@@ -11,10 +11,10 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /root/pico-sdk
 RUN git submodule update --init
 # if you want to clone pico-examples, un-comment below 2 lines.
-#WORKDIR /root
-#RUN git clone -b master https://github.com/raspberrypi/pico-examples.git
 WORKDIR /root
-#RUN git clone https://github.com/panda5mt/piocamera.git
+RUN git clone -b master https://github.com/raspberrypi/pico-examples.git
+WORKDIR /root
+RUN git clone https://github.com/panda5mt/piocamera.git
 WORKDIR /root/piocamera
 RUN echo -e '#!/bin/bash\nNOW=`date "+%Y%m%d_%H%M%S"`\ngit add .\n# git commit -m "automatically uploaded at "$NOW\ngit commit -m "Automatically uploaded"\ngit push origin main' > add_git.sh
 RUN chmod +x add_git.sh
